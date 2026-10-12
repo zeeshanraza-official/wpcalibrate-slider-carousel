@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "wpcalibrate/slider",
+	"version": "1.0.0",
+	"title": "WPCalibrate Slider & Carousel",
+	"category": "media",
+	"icon": "images-alt2",
+	"description": "Insert a responsive, accessible slider or carousel created with WPCalibrate.",
+	"keywords": [ "slider", "carousel", "swiper", "gallery", "wpcalibrate" ],
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ]
+	},
+	"textdomain": "wpcalibrate-slider-carousel",
+	"attributes": {
+		"sliderId": {
+			"type": "number",
+			"default": 0
+		}
+	},
+	"editorScript": "wpcalsc-block-editor",
+	"editorStyle": "wpcalsc-block-editor-style"
+}

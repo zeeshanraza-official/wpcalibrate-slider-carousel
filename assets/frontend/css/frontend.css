@@ -1,0 +1,434 @@
+/**
+ * WPCalibrate Slider & Carousel Frontend Stylesheet
+ *
+ * @package WPCalibrate\SliderCarousel
+ */
+
+/* Container and CSS Custom Properties Defaults */
+.wpcsc-slider-container {
+	--wpcsc-radius: 8px;
+	--wpcsc-overlay: 0.35;
+	--wpcsc-arrow-color: #ffffff;
+	--wpcsc-arrow-bg: rgba(0, 0, 0, 0.45);
+	--wpcsc-dot-color: rgba(0, 0, 0, 0.25);
+	--wpcsc-dot-active: #1d2327;
+	--wpcsc-gap: 20px;
+
+	position: relative;
+	width: 100%;
+	max-width: 100%;
+	margin: 20px auto;
+	box-sizing: border-box;
+	overflow: hidden;
+	border-radius: var(--wpcsc-radius);
+}
+
+.wpcsc-slider-container *,
+.wpcsc-slider-container *::before,
+.wpcsc-slider-container *::after {
+	box-sizing: border-box;
+}
+
+/* Full Width Breakout */
+.wpcsc-slider-container.wpcsc-full-width {
+	width: 100vw;
+	max-width: 100vw;
+	margin-left: calc(-50vw + 50%);
+	margin-right: calc(-50vw + 50%);
+	border-radius: 0;
+}
+
+/* Swiper Wrapper */
+.wpcsc-main-swiper {
+	width: 100%;
+	height: auto;
+	position: relative;
+	overflow: hidden;
+	border-radius: inherit;
+}
+
+/* Slide item */
+.wpcsc-slide {
+	position: relative;
+	overflow: hidden;
+	border-radius: var(--wpcsc-radius);
+	background: #111417;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: auto;
+}
+
+.wpcsc-slide-inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	min-height: 280px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Slide Media */
+.wpcsc-slide-media {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	overflow: hidden;
+}
+
+.wpcsc-slide-img,
+.wpcsc-slide-video {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+/* Overlay Scrim */
+.wpcsc-slide-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, var(--wpcsc-overlay));
+	z-index: 2;
+	pointer-events: none;
+}
+
+/* Slide Content */
+.wpcsc-slide-content {
+	position: relative;
+	z-index: 3;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	padding: 40px;
+}
+
+.wpcsc-content-box {
+	max-width: 650px;
+	color: #ffffff;
+	text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Content Alignment & Positions */
+.wpcsc-pos-center {
+	align-items: center;
+	justify-content: center;
+}
+.wpcsc-pos-center-left {
+	align-items: center;
+	justify-content: flex-start;
+}
+.wpcsc-pos-center-right {
+	align-items: center;
+	justify-content: flex-end;
+}
+.wpcsc-pos-bottom-left {
+	align-items: flex-end;
+	justify-content: flex-start;
+}
+.wpcsc-pos-bottom-center {
+	align-items: flex-end;
+	justify-content: center;
+}
+.wpcsc-pos-bottom-right {
+	align-items: flex-end;
+	justify-content: flex-end;
+}
+
+.wpcsc-align-center { text-align: center; }
+.wpcsc-align-left   { text-align: left; }
+.wpcsc-align-right  { text-align: right; }
+
+.wpcsc-slide-heading {
+	color: #ffffff;
+	font-size: 32px;
+	font-weight: 700;
+	margin: 0 0 12px;
+	line-height: 1.25;
+}
+
+.wpcsc-slide-desc {
+	font-size: 16px;
+	line-height: 1.5;
+	margin-bottom: 20px;
+	color: rgba(255, 255, 255, 0.9);
+}
+
+.wpcsc-slide-desc p {
+	margin: 0 0 10px;
+}
+
+/* Button CTA */
+.wpcsc-btn {
+	display: inline-block;
+	padding: 12px 26px;
+	font-size: 15px;
+	font-weight: 600;
+	text-decoration: none;
+	background: #2271b1;
+	color: #ffffff !important;
+	border-radius: 6px;
+	transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.wpcsc-btn:hover,
+.wpcsc-btn:focus-visible {
+	background: #135e96;
+	transform: translateY(-1px);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.wpcsc-btn-secondary {
+	background: #f0f0f1;
+	color: #1d2327 !important;
+}
+
+.wpcsc-btn-secondary:hover {
+	background: #dcdcde;
+}
+
+/* Navigation Arrows */
+.wpcsc-arrow {
+	width: 44px;
+	height: 44px;
+	border-radius: 50%;
+	background-color: var(--wpcsc-arrow-bg) !important;
+	color: var(--wpcsc-arrow-color) !important;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	backdrop-filter: blur(4px);
+	transition: background-color 0.2s ease, transform 0.15s ease;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	z-index: 10;
+}
+
+.wpcsc-arrow::after {
+	font-size: 16px !important;
+	font-weight: bold;
+	color: var(--wpcsc-arrow-color);
+}
+
+.wpcsc-arrow:hover {
+	background-color: rgba(0, 0, 0, 0.75) !important;
+	transform: scale(1.08);
+}
+
+.wpcsc-arrow:focus-visible {
+	outline: 2px solid #2271b1;
+	outline-offset: 2px;
+}
+
+/* Pagination */
+.wpcsc-pagination {
+	position: absolute;
+	bottom: 12px !important;
+	z-index: 10;
+}
+
+.wpcsc-pagination .swiper-pagination-bullet {
+	width: 10px;
+	height: 10px;
+	background: var(--wpcsc-dot-color);
+	opacity: 0.8;
+	transition: width 0.25s ease, border-radius 0.25s ease, background-color 0.25s ease;
+}
+
+.wpcsc-pagination .swiper-pagination-bullet-active {
+	width: 24px;
+	border-radius: 5px;
+	background: var(--wpcsc-dot-active);
+	opacity: 1;
+}
+
+/* Thumbnails Swiper */
+.wpcsc-thumbs-swiper {
+	margin-top: 14px;
+	overflow: hidden;
+}
+
+.wpcsc-thumb-slide {
+	cursor: pointer;
+	border-radius: 6px;
+	overflow: hidden;
+	opacity: 0.5;
+	transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+	border: 2px solid transparent;
+	height: 70px;
+}
+
+.wpcsc-thumb-slide.swiper-slide-thumb-active {
+	opacity: 1;
+	border-color: #2271b1;
+	transform: scale(1.02);
+}
+
+.wpcsc-thumb-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.wpcsc-thumb-placeholder {
+	width: 100%;
+	height: 100%;
+	background: #dcdcde;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 11px;
+	color: #646970;
+}
+
+/* Post and Product Cards */
+.wpcsc-post-card,
+.wpcsc-product-card {
+	background: #ffffff;
+	border: 1px solid #e2e4e7;
+	border-radius: var(--wpcsc-radius);
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	min-height: auto;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+	overflow: hidden;
+}
+
+.wpcsc-post-media,
+.wpcsc-product-media {
+	position: relative;
+	width: 100%;
+	height: 200px;
+	overflow: hidden;
+	background: #f6f7f7;
+}
+
+.wpcsc-post-img,
+.wpcsc-product-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+	transition: transform 0.3s ease;
+}
+
+.wpcsc-post-card:hover .wpcsc-post-img,
+.wpcsc-product-card:hover .wpcsc-product-img {
+	transform: scale(1.04);
+}
+
+.wpcsc-post-body,
+.wpcsc-product-body {
+	padding: 18px;
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+}
+
+.wpcsc-post-title,
+.wpcsc-product-title {
+	font-size: 18px;
+	font-weight: 600;
+	margin: 0 0 10px;
+	line-height: 1.35;
+}
+
+.wpcsc-post-title a,
+.wpcsc-product-title a {
+	color: #1d2327;
+	text-decoration: none;
+}
+
+.wpcsc-post-title a:hover,
+.wpcsc-product-title a:hover {
+	color: #2271b1;
+}
+
+.wpcsc-post-excerpt {
+	font-size: 14px;
+	color: #50575e;
+	margin-bottom: 16px;
+	line-height: 1.5;
+	flex: 1;
+}
+
+.wpcsc-product-price {
+	font-size: 16px;
+	font-weight: 700;
+	color: #1d2327;
+	margin-bottom: 14px;
+}
+
+.wpcsc-sale-badge {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	background: #d63638;
+	color: #ffffff;
+	font-size: 11px;
+	font-weight: 700;
+	text-transform: uppercase;
+	padding: 4px 8px;
+	border-radius: 4px;
+	z-index: 3;
+}
+
+/* RTL Support */
+[dir="rtl"] .wpcsc-slide-content {
+	direction: rtl;
+}
+
+[dir="rtl"] .wpcsc-arrow-prev {
+	right: 10px;
+	left: auto;
+}
+
+[dir="rtl"] .wpcsc-arrow-next {
+	left: 10px;
+	right: auto;
+}
+
+[dir="rtl"] .wpcsc-sale-badge {
+	right: 10px;
+	left: auto;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+	.wpcsc-btn,
+	.wpcsc-arrow,
+	.wpcsc-post-img,
+	.wpcsc-product-img,
+	.wpcsc-thumb-slide {
+		transition: none !important;
+		transform: none !important;
+	}
+}
+
+/* Mobile responsive padding */
+@media (max-width: 640px) {
+	.wpcsc-slide-content {
+		padding: 24px 18px;
+	}
+	.wpcsc-slide-heading {
+		font-size: 22px;
+	}
+	.wpcsc-slide-desc {
+		font-size: 14px;
+	}
+	.wpcsc-arrow {
+		width: 36px;
+		height: 36px;
+	}
+}

@@ -1,0 +1,40 @@
+/**
+ * Gutenberg Editor Styles for WPCalibrate Slider Block
+ */
+
+.wpcalsc-block-placeholder {
+	padding: 30px;
+	border: 1px dashed #c3c4c7;
+	border-radius: 8px;
+	background: #ffffff;
+	text-align: center;
+	margin: 15px 0;
+}
+
+.wpcalsc-block-placeholder .dashicons {
+	font-size: 40px;
+	width: 40px;
+	height: 40px;
+	color: #2271b1;
+	margin-bottom: 10px;
+}
+
+.wpcalsc-block-placeholder h3 {
+	margin: 0 0 8px;
+	font-size: 16px;
+	color: #1d2327;
+}
+
+.wpcalsc-block-placeholder p {
+	color: #646970;
+	margin: 0 0 16px;
+	font-size: 13px;
+}
+
+.wpcalsc-block-preview-wrap {
+	position: relative;
+	border: 1px solid #e2e4e7;
+	border-radius: 8px;
+	overflow: hidden;
+	background: #f6f7f7;
+}

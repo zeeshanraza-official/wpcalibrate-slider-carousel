@@ -1,0 +1,22 @@
+# OS metadata
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sublime-workspace
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+
+# Node & Composer development artifacts (if applicable)
+node_modules/
+composer.lock
+package-lock.json
